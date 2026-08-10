@@ -22,6 +22,7 @@ Blossom Router 当前处于初始 MVP 阶段。Go CLI 构建为 `bloom`，支持
 | 项目展示 | 中英双语 README、项目描述、可复用主视觉和中英文发布海报。 |
 | 本地 UI | `bloom serve` 在 loopback 上提供 route 选择、dry-run 预览、prompt 执行和结果复制。 |
 | 公开站点 | 中英双语产品介绍、适用性评估、安全配置生成器和 FAQ。 |
+| 规划 | 到 `v1.0.0` 的双语路线图、需求优先级、可衡量门槛和发版规则。 |
 
 ## 复现维护工作流
 

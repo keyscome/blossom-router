@@ -104,6 +104,8 @@ This MVP deliberately excludes RAG, MCP, a web UI, databases, conversation histo
 - [FAQ](FAQ.md)
 - [Practical evaluation guide](docs/evaluation.md)
 - [Effective configuration guide](docs/configuration-guide.md)
+- [Product roadmap](docs/roadmap.md)
+- [Release plan](docs/release-plan.md)
 - [Project description and messaging](docs/project-description.md)
 - [English launch poster](docs/assets/blossom-router-poster-en.jpg)
 - [Simplified Chinese launch poster](docs/assets/blossom-router-poster-zh-CN.jpg)

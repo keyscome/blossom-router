@@ -31,6 +31,7 @@ Blossom Router 是面向 macOS 和 Apple Silicon 的轻量级 Go CLI。`bloom` �
 - `README.md` 与 `README.zh-CN.md`：中英双语安装、配置和使用说明。
 - `docs/assets/`：项目主视觉和中英文发布海报。
 - `docs/project-description*.md`：可复用的仓库介绍和传播文案。
+- `docs/roadmap*.md` 与 `docs/release-plan*.md`：阶段需求与发版门槛。
 - `HANDOFF.zh-CN.md`：当前实现状态和下一项安全工作。
 
 ## 不可违反的行为

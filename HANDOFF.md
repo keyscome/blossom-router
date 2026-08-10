@@ -22,6 +22,7 @@ The repository is intended to live at `keyscome/blossom-router`. No formal relea
 | Presentation | Bilingual README, project descriptions, a reusable hero image, and English/Chinese launch posters. |
 | Local UI | `bloom serve` provides route selection, dry-run preview, prompt execution, and result copying on loopback only. |
 | Public site | Bilingual product explanation, fit evaluation, safe config generator, and FAQ. |
+| Planning | Bilingual roadmap through `v1.0.0`, prioritized requirements, measurable gates, and release policy. |
 
 ## Reproduce the maintained workflow
 
