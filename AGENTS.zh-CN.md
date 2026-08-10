@@ -26,7 +26,9 @@ Blossom Router 是面向 macOS 和 Apple Silicon 的轻量级 Go CLI。`bloom` �
 - `internal/provider/`：provider 抽象与 OpenAI-compatible HTTP 客户端。
 - `internal/router/`：确定性的自动路由规则。
 - `config.example.yaml`：不包含真实凭据的安全配置模板。
-- `README.md`：安装、配置和使用说明。
+- `README.md` 与 `README.zh-CN.md`：中英双语安装、配置和使用说明。
+- `docs/assets/`：项目主视觉和中英文发布海报。
+- `docs/project-description*.md`：可复用的仓库介绍和传播文案。
 - `HANDOFF.zh-CN.md`：当前实现状态和下一项安全工作。
 
 ## 不可违反的行为
@@ -85,4 +87,4 @@ Provider 修改使用 `httptest`，单元测试不得调用云端。只有本机
 
 ## 完成定义
 
-只有在请求行为已实现、相关检查通过、用户配置与 README 和实现一致、没有提交秘密或二进制，并在项目状态或下一步发生实质变化时更新 `HANDOFF.zh-CN.md`，任务才算完成。
+只有在请求行为已实现、相关检查通过、中英双语用户配置与 README 和实现一致、没有提交秘密或二进制，并在项目状态或下一步发生实质变化时更新 `HANDOFF.zh-CN.md`，任务才算完成。

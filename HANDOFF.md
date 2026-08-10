@@ -19,6 +19,7 @@ The repository is intended to live at `keyscome/blossom-router`. No formal relea
 | Auto routing | Short general → local; batch/medium → cheap; coding → normal; complex/very long → strong. |
 | Safety | No compiled cloud model names, hidden fallbacks, retries, chains, storage, or telemetry. |
 | Tests | Routing rules and the OpenAI-compatible HTTP path have unit coverage. |
+| Presentation | Bilingual README, project descriptions, a reusable hero image, and English/Chinese launch posters. |
 
 ## Reproduce the maintained workflow
 
@@ -63,4 +64,4 @@ These limitations are consistent with the MVP unless real usage establishes a na
 
 ## Next safe work
 
-Use the tool in normal local/cloud workflows before expanding scope. The most useful near-term engineering work is configuration and CLI table-driven testing, request timeout configuration, and packaging/CI. Do not add RAG, MCP, a daemon, or an agent framework merely to anticipate future use.
+Use the tool in normal local/cloud workflows before expanding scope. The most useful near-term engineering work is configuration and CLI table-driven testing, request timeout configuration, and packaging/CI. The installer now places `bloom` in `~/.local/bin`; an already-open shell may still need `source ~/.zshrc && rehash`. Do not add RAG, MCP, a daemon, or an agent framework merely to anticipate future use.

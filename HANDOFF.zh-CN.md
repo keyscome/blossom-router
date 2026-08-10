@@ -19,6 +19,7 @@ Blossom Router 当前处于初始 MVP 阶段。Go CLI 构建为 `bloom`，支持
 | 自动路由 | 短通用任务 → local；批处理/中等长度 → cheap；编码 → normal；复杂/超长 → strong。 |
 | 安全 | 不编译写死云端模型，不做隐藏回退、重试、串联、存储或遥测。 |
 | 测试 | 路由规则和 OpenAI-compatible HTTP 路径已有单元测试。 |
+| 项目展示 | 中英双语 README、项目描述、可复用主视觉和中英文发布海报。 |
 
 ## 复现维护工作流
 
@@ -63,4 +64,4 @@ BLOSSOM_LOCAL_MODEL=qwen2.5-coder:14b ./bin/bloom local "Reply with exactly: OK"
 
 ## 下一项安全工作
 
-先在日常本地和云端工作流中使用本工具，再扩展范围。近期最有价值的工程工作是配置和 CLI 表驱动测试、请求超时配置，以及打包/CI。不要仅为预判未来而加入 RAG、MCP、daemon 或 Agent 框架。
+先在日常本地和云端工作流中使用本工具，再扩展范围。近期最有价值的工程工作是配置和 CLI 表驱动测试、请求超时配置，以及打包/CI。安装器现在把 `bloom` 放入 `~/.local/bin`；已经打开的 shell 可能仍需执行 `source ~/.zshrc && rehash`。不要仅为预判未来而加入 RAG、MCP、daemon 或 Agent 框架。

@@ -1,6 +1,18 @@
 # Blossom Router (`bloom`)
 
-A small macOS-friendly CLI in the Blossom ecosystem that routes everyday AI work to local or configurable cloud models. It is intentionally limited to a single binary, one YAML file, one OpenAI-compatible protocol, and simple deterministic routing.
+[English](README.md) | [简体中文](README.zh-CN.md)
+
+![Blossom Router — one prompt, the right model](docs/assets/blossom-router-hero.png)
+
+**Route everyday AI work wisely.** Blossom Router is a small macOS-friendly CLI in the Blossom ecosystem that sends each prompt to a configurable local or cloud model tier. Routine work stays local or cheap; difficult work can be sent explicitly to stronger models. It remains intentionally limited to a single binary, one YAML file, one OpenAI-compatible protocol, and deterministic routing you can inspect before it runs.
+
+## Why Blossom Router?
+
+- Save premium-model quota by keeping short, repetitive work local.
+- Use one command across Ollama and OpenAI-compatible cloud endpoints.
+- Keep provider names, model IDs, endpoints, and credentials out of the binary.
+- Preview automatic decisions with `bloom auto --dry-run` without calling a model.
+- Avoid hidden retries, fallbacks, model chains, telemetry, and stored conversations.
 
 ## Install
 
@@ -8,13 +20,25 @@ Requirements: Go 1.24+; Ollama is optional but recommended for local use.
 
 ```bash
 make test
-make build
-install -m 755 bin/bloom ~/.local/bin/bloom
+make install
 mkdir -p ~/.config/blossom
 cp config.example.yaml ~/.config/blossom/router.yaml
 ```
 
-Ensure `~/.local/bin` is on `PATH`. Alternatively, `make install` installs through Go into `$GOBIN` (or `$GOPATH/bin`).
+`make install` writes `bloom` to `~/.local/bin` by default. If `which bloom` still reports `not found`, activate that directory in the current zsh session:
+
+```bash
+export PATH="$HOME/.local/bin:$PATH"
+rehash
+```
+
+To keep it available in new terminals, add the export to `~/.zshrc`, then run `source ~/.zshrc`. Your existing terminal does not automatically reload a changed shell profile.
+
+To install elsewhere:
+
+```bash
+make install PREFIX=/usr/local
+```
 
 ## Configure
 
@@ -68,3 +92,10 @@ For each cloud tier, set its `base_url`, `model`, and `api_key_env`. Different t
 ## Scope
 
 This MVP deliberately excludes RAG, MCP, a web UI, databases, conversation history, streaming, tool calls, and automatic fallback. Those can be added later only when real usage justifies them.
+
+## Project materials
+
+- [Project description and messaging](docs/project-description.md)
+- [English launch poster](docs/assets/blossom-router-poster-en.png)
+- [Simplified Chinese launch poster](docs/assets/blossom-router-poster-zh-CN.png)
+- [Agent guide](AGENTS.md) and [handoff](HANDOFF.md)

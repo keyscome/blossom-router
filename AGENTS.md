@@ -26,7 +26,9 @@ Do not treat generated binaries, local configuration, API keys, old conversation
 - `internal/provider/`: provider abstraction and OpenAI-compatible HTTP client.
 - `internal/router/`: deterministic automatic-routing rules.
 - `config.example.yaml`: safe configuration template with no real credentials.
-- `README.md`: installation, configuration, and usage guide.
+- `README.md` and `README.zh-CN.md`: bilingual installation, configuration, and usage guides.
+- `docs/assets/`: project key visual and bilingual launch posters.
+- `docs/project-description*.md`: reusable repository and launch messaging.
 - `HANDOFF.md`: current implementation status and next safe work.
 
 ## Non-negotiable behavior
@@ -85,4 +87,4 @@ For provider changes, use `httptest`; do not make cloud calls in unit tests. A l
 
 ## Definition of done
 
-A task is complete when requested behavior exists, focused and full applicable checks pass, user-facing configuration and README guidance match the implementation, no secret or generated binary is included, and `HANDOFF.md` is updated when the project state or next work materially changes.
+A task is complete when requested behavior exists, focused and full applicable checks pass, bilingual user-facing configuration and README guidance match the implementation, no secret or generated binary is included, and `HANDOFF.md` is updated when the project state or next work materially changes.
