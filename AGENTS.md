@@ -25,6 +25,8 @@ Do not treat generated binaries, local configuration, API keys, old conversation
 - `internal/config/`: YAML loading, defaults, environment overrides, and provider validation.
 - `internal/provider/`: provider abstraction and OpenAI-compatible HTTP client.
 - `internal/router/`: deterministic automatic-routing rules.
+- `internal/webui/`: localhost-only operating UI and embedded static assets.
+- `site/`: bilingual public project site built with Vinext/Sites.
 - `config.example.yaml`: safe configuration template with no real credentials.
 - `README.md` and `README.zh-CN.md`: bilingual installation, configuration, and usage guides.
 - `docs/assets/`: project key visual and bilingual launch posters.
@@ -38,6 +40,7 @@ Do not treat generated binaries, local configuration, API keys, old conversation
 - `auto --dry-run` must not contact any provider.
 - A normal command makes one explicit provider request. Do not add retries, fallbacks, model chaining, telemetry, or background calls without visible configuration and user agreement.
 - Preserve stdin and argument prompt support.
+- Keep the operating UI loopback-only. Never expose resolved credentials through its API or static assets.
 - Keep routing deterministic and explainable. Any routing-rule change requires focused tests and documentation.
 - Keep `code` behind the provider abstraction; do not assume a proprietary Codex transport.
 - Preserve the OpenAI-compatible `/chat/completions` contract unless a new adapter is explicit and separately tested.
@@ -76,6 +79,16 @@ For routing changes, add table-driven cases and manually verify at least one dry
 ```
 
 For provider changes, use `httptest`; do not make cloud calls in unit tests. A live Ollama smoke test is useful only when the service and configured model already exist, and its result must be reported separately from automated tests.
+
+For public-site changes:
+
+```bash
+cd site
+npm test
+npm run lint
+```
+
+Keep English `/` and Simplified Chinese `/zh` behavior and content synchronized.
 
 ## Git and release policy
 

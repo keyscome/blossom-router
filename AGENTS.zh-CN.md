@@ -25,6 +25,8 @@ Blossom Router 是面向 macOS 和 Apple Silicon 的轻量级 Go CLI。`bloom` �
 - `internal/config/`：YAML、默认值、环境变量覆盖和 provider 校验。
 - `internal/provider/`：provider 抽象与 OpenAI-compatible HTTP 客户端。
 - `internal/router/`：确定性的自动路由规则。
+- `internal/webui/`：只监听 localhost 的操作 UI 和嵌入式静态资源。
+- `site/`：使用 Vinext/Sites 构建的中英双语公开项目站。
 - `config.example.yaml`：不包含真实凭据的安全配置模板。
 - `README.md` 与 `README.zh-CN.md`：中英双语安装、配置和使用说明。
 - `docs/assets/`：项目主视觉和中英文发布海报。
@@ -38,6 +40,7 @@ Blossom Router 是面向 macOS 和 Apple Silicon 的轻量级 Go CLI。`bloom` �
 - `auto --dry-run` 绝不能联系 provider。
 - 普通命令只发起一次明确请求。未经可见配置和用户同意，不增加重试、回退、模型串联、遥测或后台调用。
 - 保持 stdin 和命令行 prompt 两种输入方式。
+- 操作 UI 必须只监听 loopback；不得通过 API 或静态资源暴露解析后的凭据。
 - 路由必须确定且可解释；修改规则时同步添加测试和文档。
 - `code` 必须保留 provider abstraction，不假定专有 Codex 协议。
 - 除非明确新增并单独测试 adapter，否则保持 OpenAI-compatible `/chat/completions` 契约。
@@ -76,6 +79,16 @@ git diff --check
 ```
 
 Provider 修改使用 `httptest`，单元测试不得调用云端。只有本机已有 Ollama 服务和模型时才做实时冒烟测试，并将其与自动测试结果分开报告。
+
+公开站点修改运行：
+
+```bash
+cd site
+npm test
+npm run lint
+```
+
+保持英文 `/` 与简体中文 `/zh` 的行为和内容同步。
 
 ## Git 与发布规则
 

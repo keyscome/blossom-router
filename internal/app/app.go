@@ -11,6 +11,7 @@ import (
 	"github.com/keyscome/blossom-router/internal/config"
 	"github.com/keyscome/blossom-router/internal/provider"
 	"github.com/keyscome/blossom-router/internal/router"
+	"github.com/keyscome/blossom-router/internal/webui"
 )
 
 const usage = `Usage: bloom <command> [flags] [prompt]
@@ -21,6 +22,7 @@ Commands:
   code    Use the configurable code provider
   strong  Use the strongest configured provider
   auto    Select local, cheap, normal, or strong automatically
+  serve   Open the local browser UI
 
 Flags:
   --config PATH   Config file (default ~/.config/blossom/router.yaml)
@@ -34,6 +36,21 @@ func Run(ctx context.Context, args []string, stdin io.Reader, stdout, stderr io.
 		return nil
 	}
 	command := args[0]
+	if command == "serve" {
+		fs := flag.NewFlagSet(command, flag.ContinueOnError)
+		fs.SetOutput(stderr)
+		configPath := fs.String("config", "", "config file")
+		addr := fs.String("addr", "127.0.0.1:7331", "listen address")
+		noOpen := fs.Bool("no-open", false, "do not open the browser")
+		if err := fs.Parse(args[1:]); err != nil {
+			return err
+		}
+		cfg, err := config.Load(*configPath)
+		if err != nil {
+			return err
+		}
+		return webui.Serve(ctx, cfg, *addr, !*noOpen, stdout)
+	}
 	valid := map[string]string{"local": "local", "ask": "normal", "code": "code", "strong": "strong", "auto": ""}
 	route, ok := valid[command]
 	if !ok {

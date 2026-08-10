@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Blossom Router</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div class="mark" aria-hidden="true">✦</div>
+      <div><p class="eyebrow">LOCAL CONTROL PANEL</p><h1>Blossom Router</h1></div>
+      <button id="language" class="ghost" type="button">中文</button>
+    </header>
+    <section class="intro">
+      <p id="intro">Send routine work locally. Save stronger models for the prompts that need them.</p>
+      <span id="status" class="status">Checking configuration…</span>
+    </section>
+    <form id="run-form">
+      <fieldset>
+        <legend id="route-label">Choose a route</legend>
+        <div class="routes" id="routes">
+          <label><input type="radio" name="route" value="auto" checked><span><b>Auto</b><small>Choose for me</small></span></label>
+          <label><input type="radio" name="route" value="local"><span><b>Local</b><small>Ollama</small></span></label>
+          <label><input type="radio" name="route" value="cheap"><span><b>Cheap</b><small>Batch work</small></span></label>
+          <label><input type="radio" name="route" value="normal"><span><b>Normal</b><small>Everyday cloud</small></span></label>
+          <label><input type="radio" name="route" value="strong"><span><b>Strong</b><small>Hard problems</small></span></label>
+          <label><input type="radio" name="route" value="code"><span><b>Code</b><small>Programming</small></span></label>
+        </div>
+      </fieldset>
+      <label class="prompt-label" for="prompt" id="prompt-label">What do you want to do?</label>
+      <textarea id="prompt" required autofocus placeholder="Paste a question, log, diff, or task…"></textarea>
+      <div class="actions">
+        <label class="dry"><input id="dry-run" type="checkbox" checked><span id="dry-label">Preview route first</span></label>
+        <button id="submit" class="primary" type="submit">Preview route</button>
+      </div>
+    </form>
+    <section id="output" class="output" aria-live="polite" hidden>
+      <div class="output-head"><span id="chosen-route"></span><button id="copy" class="ghost" type="button">Copy</button></div>
+      <pre id="result"></pre>
+    </section>
+    <footer><span>Keys stay in your local configuration.</span><code>~/.config/blossom/router.yaml</code></footer>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
