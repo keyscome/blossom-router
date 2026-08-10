@@ -66,11 +66,16 @@ bloom strong "compare these architecture options"
 bloom auto "translate this release note"
 bloom auto --dry-run "design a migration plan"
 cat error.log | bloom auto
+bloom serve
 ```
 
 `auto` uses transparent rules: short general prompts go local; summary/translation/classification and medium prompts go cheap; coding keywords go normal; architecture/security/migration/root-cause keywords and prompts over 3,000 characters go strong. It prints the chosen route to stderr. `--dry-run` never calls a model.
 
 `code` is a separate configurable provider slot. It can target any Codex/OpenAI-compatible chat-completions endpoint, but it makes exactly one request and performs no hidden planning, retry, or model chaining.
+
+### Local browser UI
+
+Run `bloom serve` to open `http://127.0.0.1:7331`. The local-only control panel lets you select a route, paste a prompt, preview automatic routing, run the request, and copy the result. It uses the same YAML and environment variables as the CLI; resolved API keys stay server-side. The server refuses non-loopback addresses.
 
 ## Ollama and Qwen
 
@@ -95,6 +100,10 @@ This MVP deliberately excludes RAG, MCP, a web UI, databases, conversation histo
 
 ## Project materials
 
+- [Public project site](https://alanthssss.github.io/blossom-router)
+- [FAQ](FAQ.md)
+- [Practical evaluation guide](docs/evaluation.md)
+- [Effective configuration guide](docs/configuration-guide.md)
 - [Project description and messaging](docs/project-description.md)
 - [English launch poster](docs/assets/blossom-router-poster-en.jpg)
 - [Simplified Chinese launch poster](docs/assets/blossom-router-poster-zh-CN.jpg)

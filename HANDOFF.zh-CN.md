@@ -4,7 +4,7 @@
 
 ## 当前状态
 
-Blossom Router 当前处于初始 MVP 阶段。Go CLI 构建为 `bloom`，支持 `local`、`ask`、`code`、`strong` 和 `auto`。Provider 使用可配置的 OpenAI-compatible chat-completions endpoint。自动路由是确定性的，`auto --dry-run` 只报告路由，不调用模型。
+Blossom Router 当前处于初始 MVP 阶段。Go CLI 构建为 `bloom`，支持 `local`、`ask`、`code`、`strong`、`auto` 和只监听 localhost 的 `serve` UI。Provider 使用可配置的 OpenAI-compatible chat-completions endpoint。自动路由是确定性的，`auto --dry-run` 只报告路由，不调用模型。
 
 仓库目标位置为 `keyscome/blossom-router`。当前尚未创建正式 Release 或版本 tag。
 
@@ -20,6 +20,8 @@ Blossom Router 当前处于初始 MVP 阶段。Go CLI 构建为 `bloom`，支持
 | 安全 | 不编译写死云端模型，不做隐藏回退、重试、串联、存储或遥测。 |
 | 测试 | 路由规则和 OpenAI-compatible HTTP 路径已有单元测试。 |
 | 项目展示 | 中英双语 README、项目描述、可复用主视觉和中英文发布海报。 |
+| 本地 UI | `bloom serve` 在 loopback 上提供 route 选择、dry-run 预览、prompt 执行和结果复制。 |
+| 公开站点 | 中英双语产品介绍、适用性评估、安全配置生成器和 FAQ。 |
 
 ## 复现维护工作流
 
@@ -59,6 +61,7 @@ BLOSSOM_LOCAL_MODEL=qwen2.5-coder:14b ./bin/bloom local "Reply with exactly: OK"
 - 没有 timeout 参数、重试、回退、成本统计或对话历史。
 - CLI 解析要求 flag 位于 prompt 参数之前。
 - 配置加载和 CLI 行为仍需要更完整的单元测试。
+- UI 明确只面向本地单用户，不是经过加固的远程服务。
 
 这些限制符合 MVP，除非真实使用形成更明确的下一项需求。
 

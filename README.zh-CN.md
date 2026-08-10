@@ -66,11 +66,16 @@ bloom strong "比较这些架构方案"
 bloom auto "翻译这份发布说明"
 bloom auto --dry-run "设计一个迁移方案"
 cat error.log | bloom auto
+bloom serve
 ```
 
 `auto` 使用可解释规则：短通用任务进入 local；摘要、翻译、分类和中等长度任务进入 cheap；编码关键词进入 normal；架构、安全、迁移、根因分析和超过 3,000 字符的提示词进入 strong。路由结果写入 stderr，`--dry-run` 绝不会调用模型。
 
 `code` 是独立的可配置 provider slot。它可以连接 Codex/OpenAI-compatible chat-completions endpoint，但每次只进行一次请求，不做隐藏规划、重试或模型串联。
+
+### 本地浏览器 UI
+
+运行 `bloom serve` 打开 `http://127.0.0.1:7331`。本地控制台可以选择 route、粘贴 prompt、预览自动路由、执行请求并复制结果。它与 CLI 使用同一份 YAML 和环境变量；解析后的 API key 始终留在服务端。服务器会拒绝非 loopback 地址。
 
 ## 连接 Ollama 与 Qwen
 
@@ -95,6 +100,10 @@ MVP 明确不包含 RAG、MCP、Web UI、数据库、对话历史、流式输出
 
 ## 项目素材
 
+- [公开项目站](https://alanthssss.github.io/blossom-router)
+- [常见问题](FAQ.zh-CN.md)
+- [实用性评估指南](docs/evaluation.zh-CN.md)
+- [有效配置指南](docs/configuration-guide.zh-CN.md)
 - [中文项目描述与传播文案](docs/project-description.zh-CN.md)
 - [英文发布海报](docs/assets/blossom-router-poster-en.jpg)
 - [中文发布海报](docs/assets/blossom-router-poster-zh-CN.jpg)

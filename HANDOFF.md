@@ -4,7 +4,7 @@
 
 ## Current status
 
-Blossom Router is at its initial MVP. The Go CLI builds as `bloom` and supports `local`, `ask`, `code`, `strong`, and `auto`. Providers use a configurable OpenAI-compatible chat-completions endpoint. Automatic routing is deterministic, and `auto --dry-run` reports a route without calling a model.
+Blossom Router is at its initial MVP. The Go CLI builds as `bloom` and supports `local`, `ask`, `code`, `strong`, `auto`, and a localhost-only `serve` UI. Providers use a configurable OpenAI-compatible chat-completions endpoint. Automatic routing is deterministic, and `auto --dry-run` reports a route without calling a model.
 
 The repository is intended to live at `keyscome/blossom-router`. No formal release or version tag exists yet.
 
@@ -20,6 +20,8 @@ The repository is intended to live at `keyscome/blossom-router`. No formal relea
 | Safety | No compiled cloud model names, hidden fallbacks, retries, chains, storage, or telemetry. |
 | Tests | Routing rules and the OpenAI-compatible HTTP path have unit coverage. |
 | Presentation | Bilingual README, project descriptions, a reusable hero image, and English/Chinese launch posters. |
+| Local UI | `bloom serve` provides route selection, dry-run preview, prompt execution, and result copying on loopback only. |
+| Public site | Bilingual product explanation, fit evaluation, safe config generator, and FAQ. |
 
 ## Reproduce the maintained workflow
 
@@ -59,6 +61,7 @@ Local YAML files, shell environment, installed Ollama models, and generated bina
 - There is no timeout flag, retry policy, fallback, cost accounting, or conversation history.
 - CLI parsing expects flags before prompt arguments.
 - Configuration loading and CLI behavior need broader unit coverage.
+- The UI is intentionally single-user and local; it is not a hardened remote service.
 
 These limitations are consistent with the MVP unless real usage establishes a narrower next requirement.
 
