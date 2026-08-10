@@ -19,6 +19,7 @@ test("renders the English product site", async () => {
   assert.match(html, /Blossom Router/);
   assert.match(html, /One prompt/);
   assert.match(html, /Is Blossom Router useful for you/);
+  assert.match(html, /A deliberate path to 1\.0/);
   assert.match(html, /Frequently asked questions/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/i);
 });
@@ -29,6 +30,7 @@ test("renders the Simplified Chinese product site", async () => {
   const html = await response.text();
   assert.match(html, /一个提示词/);
   assert.match(html, /Blossom Router 适合你吗/);
+  assert.match(html, /克制地走向 1\.0/);
   assert.match(html, /常见问题/);
 });
 

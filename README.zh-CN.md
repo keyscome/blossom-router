@@ -104,6 +104,8 @@ MVP 明确不包含 RAG、MCP、Web UI、数据库、对话历史、流式输出
 - [常见问题](FAQ.zh-CN.md)
 - [实用性评估指南](docs/evaluation.zh-CN.md)
 - [有效配置指南](docs/configuration-guide.zh-CN.md)
+- [产品路线图](docs/roadmap.zh-CN.md)
+- [发版规划](docs/release-plan.zh-CN.md)
 - [中文项目描述与传播文案](docs/project-description.zh-CN.md)
 - [英文发布海报](docs/assets/blossom-router-poster-en.jpg)
 - [中文发布海报](docs/assets/blossom-router-poster-zh-CN.jpg)

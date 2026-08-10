@@ -8,7 +8,7 @@ const content = {
   en: {
     language: "中文",
     languageHref: "/zh",
-    nav: ["How it works", "Evaluate", "Configure", "FAQ"],
+    nav: ["How it works", "Evaluate", "Configure", "Roadmap", "FAQ"],
     eyebrow: "BLOSSOM ECOSYSTEM · OPEN SOURCE",
     title: "One prompt.\nThe right model.",
     lead: "Keep routine AI work local. Route harder tasks to the cloud only when they deserve the cost.",
@@ -58,12 +58,20 @@ const content = {
     ],
     localTitle: "Prefer buttons to terminal commands?",
     localLead: "Run one command to open the local control panel. Choose a route, paste a task, preview the decision, and see the result without handling API keys in a webpage.",
+    roadmapTitle: "A deliberate path to 1.0.",
+    roadmapLead: "Stabilize the small router first. Expand only when real usage proves the next requirement.",
+    phases: [
+      ["Now", "v0.1 · Stable preview", "CLI, local UI, bilingual guides, safe configuration, packaging baseline"],
+      ["Next", "v0.2 · Daily usefulness", "Config diagnostics, request timeouts, streaming, usage evaluation"],
+      ["Then", "v0.3 · Provider depth", "Explicit adapters, cost guardrails, opt-in bounded fallback"],
+      ["Goal", "v1.0 · Trusted tool", "Stable contracts, signed releases, clean-install acceptance, upgrade policy"],
+    ],
     footer: "Blossom Router · lightweight, local-first, explainable",
   },
   zh: {
     language: "EN",
     languageHref: "/",
-    nav: ["工作方式", "适用性评估", "配置", "常见问题"],
+    nav: ["工作方式", "适用性评估", "配置", "路线图", "常见问题"],
     eyebrow: "BLOSSOM 生态 · 开源项目",
     title: "一个提示词，\n交给合适的模型。",
     lead: "日常 AI 工作留在本地，真正困难的任务才值得调用云端强模型。",
@@ -113,6 +121,14 @@ const content = {
     ],
     localTitle: "不想记命令？使用本地操作页面。",
     localLead: "只需一个命令打开本地控制台。选择路由、粘贴任务、预览决定并查看结果，不需要在网页中处理 API key。",
+    roadmapTitle: "克制地走向 1.0。",
+    roadmapLead: "先把小型路由器做稳定，再由真实使用证明下一项扩展是否必要。",
+    phases: [
+      ["当前", "v0.1 · 稳定预览版", "CLI、本地 UI、双语指南、安全配置与基础打包"],
+      ["下一步", "v0.2 · 日常实用性", "配置诊断、请求超时、流式输出与使用评估"],
+      ["随后", "v0.3 · Provider 深化", "明确 adapter、成本护栏与可选的有界回退"],
+      ["目标", "v1.0 · 可信工具", "稳定契约、签名发布、干净安装验收与升级策略"],
+    ],
     footer: "Blossom Router · 轻量、本地优先、可解释",
   },
 };
@@ -148,11 +164,11 @@ providers:
     setTimeout(() => setCopied(false), 1400);
   }
 
-  return <main>
+  return <main className={`site-page locale-${locale}`}>
     <nav className="nav shell">
       <a className="brand" href={locale === "en" ? "/" : "/zh"}><span>✦</span> Blossom Router</a>
       <div className="navlinks">
-        <a href="#how">{c.nav[0]}</a><a href="#evaluate">{c.nav[1]}</a><a href="#configure">{c.nav[2]}</a><a href="#faq">{c.nav[3]}</a>
+        <a href="#how">{c.nav[0]}</a><a href="#evaluate">{c.nav[1]}</a><a href="#configure">{c.nav[2]}</a><a href="#roadmap">{c.nav[3]}</a><a href="#faq">{c.nav[4]}</a>
       </div>
       <a className="language" href={c.languageHref}>{c.language}</a>
     </nav>
@@ -170,7 +186,9 @@ providers:
 
     <section className="local-ui shell"><div><p className="eyebrow">LOCAL UI</p><h2>{c.localTitle}</h2><p>{c.localLead}</p></div><code>bloom serve</code></section>
 
-    <section id="faq" className="section shell"><div className="section-heading"><p className="eyebrow">04 · FAQ</p><h2>{c.faqTitle}</h2></div><div className="faq-list">{c.faqs.map(([q, a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}</div></section>
+    <section id="roadmap" className="section shell"><div className="section-heading"><p className="eyebrow">04 · ROADMAP</p><h2>{c.roadmapTitle}</h2><p>{c.roadmapLead}</p></div><div className="roadmap-grid">{c.phases.map(([label, title, body], i) => <article key={title}><div><span>{String(i + 1).padStart(2, "0")}</span><small>{label}</small></div><h3>{title}</h3><p>{body}</p></article>)}</div></section>
+
+    <section id="faq" className="section shell"><div className="section-heading"><p className="eyebrow">05 · FAQ</p><h2>{c.faqTitle}</h2></div><div className="faq-list">{c.faqs.map(([q, a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}</div></section>
     <footer className="shell"><span>{c.footer}</span><a href="https://github.com/keyscome/blossom-router">GitHub ↗</a></footer>
   </main>;
 }

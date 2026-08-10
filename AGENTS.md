@@ -31,6 +31,7 @@ Do not treat generated binaries, local configuration, API keys, old conversation
 - `README.md` and `README.zh-CN.md`: bilingual installation, configuration, and usage guides.
 - `docs/assets/`: project key visual and bilingual launch posters.
 - `docs/project-description*.md`: reusable repository and launch messaging.
+- `docs/roadmap*.md` and `docs/release-plan*.md`: phased requirements and release gates.
 - `HANDOFF.md`: current implementation status and next safe work.
 
 ## Non-negotiable behavior
