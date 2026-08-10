@@ -2,7 +2,7 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-![Blossom Router——一个提示词，交给合适的模型](docs/assets/blossom-router-hero.png)
+![Blossom Router——一个提示词，交给合适的模型](docs/assets/blossom-router-hero.jpg)
 
 **让每一次 AI 调用，都恰到好处。** Blossom Router 是 Blossom 生态中的轻量级 macOS CLI，把每个提示词交给可配置的本地或云端模型层级。日常工作留在本地或经济模型，困难任务再明确交给更强模型。它刻意保持简单：一个二进制、一个 YAML 文件、一套 OpenAI-compatible 协议，以及执行前可检查的确定性路由。
 
@@ -96,6 +96,6 @@ MVP 明确不包含 RAG、MCP、Web UI、数据库、对话历史、流式输出
 ## 项目素材
 
 - [中文项目描述与传播文案](docs/project-description.zh-CN.md)
-- [英文发布海报](docs/assets/blossom-router-poster-en.png)
-- [中文发布海报](docs/assets/blossom-router-poster-zh-CN.png)
+- [英文发布海报](docs/assets/blossom-router-poster-en.jpg)
+- [中文发布海报](docs/assets/blossom-router-poster-zh-CN.jpg)
 - [Agent 指南](AGENTS.zh-CN.md)与[交接记录](HANDOFF.zh-CN.md)
