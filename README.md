@@ -1,6 +1,6 @@
-# Doudou CLI (`dd`)
+# Blossom Router (`bloom`)
 
-A small macOS-friendly CLI that routes everyday AI work to local or configurable cloud models. It is intentionally limited to a single binary, one YAML file, one OpenAI-compatible protocol, and simple deterministic routing.
+A small macOS-friendly CLI in the Blossom ecosystem that routes everyday AI work to local or configurable cloud models. It is intentionally limited to a single binary, one YAML file, one OpenAI-compatible protocol, and simple deterministic routing.
 
 ## Install
 
@@ -9,39 +9,39 @@ Requirements: Go 1.24+; Ollama is optional but recommended for local use.
 ```bash
 make test
 make build
-install -m 755 bin/dd ~/.local/bin/dd
-mkdir -p ~/.config/doudou
-cp config.example.yaml ~/.config/doudou/config.yaml
+install -m 755 bin/bloom ~/.local/bin/bloom
+mkdir -p ~/.config/blossom
+cp config.example.yaml ~/.config/blossom/router.yaml
 ```
 
 Ensure `~/.local/bin` is on `PATH`. Alternatively, `make install` installs through Go into `$GOBIN` (or `$GOPATH/bin`).
 
 ## Configure
 
-Edit `~/.config/doudou/config.yaml`. Every route points to an OpenAI-compatible endpoint; model names are never compiled into cloud commands. API keys can be provided indirectly with `api_key_env`, or directly with `api_key` (not recommended).
+Edit `~/.config/blossom/router.yaml`. Every route points to an OpenAI-compatible endpoint; model names are never compiled into cloud commands. API keys can be provided indirectly with `api_key_env`, or directly with `api_key` (not recommended).
 
 Each configured provider also supports environment overrides:
 
 ```bash
-export DOUDOU_LOCAL_MODEL=qwen3:8b
-export DOUDOU_LOCAL_BASE_URL=http://localhost:11434/v1
-export DOUDOU_STRONG_MODEL=your-model
-export DOUDOU_STRONG_BASE_URL=https://api.example.com/v1
-export DOUDOU_STRONG_API_KEY=secret
+export BLOSSOM_LOCAL_MODEL=qwen3:8b
+export BLOSSOM_LOCAL_BASE_URL=http://localhost:11434/v1
+export BLOSSOM_STRONG_MODEL=your-model
+export BLOSSOM_STRONG_BASE_URL=https://api.example.com/v1
+export BLOSSOM_STRONG_API_KEY=secret
 ```
 
-Environment override names use `DOUDOU_<PROVIDER>_{MODEL,BASE_URL,API_KEY}`. Values from environment variables override YAML.
+Environment override names use `BLOSSOM_<PROVIDER>_{MODEL,BASE_URL,API_KEY}`. Values from environment variables override YAML.
 
 ## Use
 
 ```bash
-dd local "summarize this log"
-dd ask "explain this deployment failure"
-git diff | dd code "review this diff"
-dd strong "compare these architecture options"
-dd auto "translate this release note"
-dd auto --dry-run "design a migration plan"
-cat error.log | dd auto
+bloom local "summarize this log"
+bloom ask "explain this deployment failure"
+git diff | bloom code "review this diff"
+bloom strong "compare these architecture options"
+bloom auto "translate this release note"
+bloom auto --dry-run "design a migration plan"
+cat error.log | bloom auto
 ```
 
 `auto` uses transparent rules: short general prompts go local; summary/translation/classification and medium prompts go cheap; coding keywords go normal; architecture/security/migration/root-cause keywords and prompts over 3,000 characters go strong. It prints the chosen route to stderr. `--dry-run` never calls a model.
@@ -56,7 +56,7 @@ Install and start Ollama, then pull the model named in your config:
 brew install ollama
 ollama serve
 ollama pull qwen3:8b
-dd local "用三句话总结 Kubernetes readiness probe"
+bloom local "用三句话总结 Kubernetes readiness probe"
 ```
 
 Choose a Qwen size that fits your Mac memory and change only `providers.local.model`. Ollama exposes the compatible endpoint at `http://localhost:11434/v1`; it does not require an API key.

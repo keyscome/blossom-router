@@ -1,4 +1,4 @@
-module github.com/alanthssss/doudou-cli
+module github.com/keyscome/blossom-router
 
 go 1.24
 

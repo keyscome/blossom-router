@@ -33,7 +33,7 @@ func DefaultPath() (string, error) {
 	if err != nil {
 		return "", err
 	}
-	return filepath.Join(d, "doudou", "config.yaml"), nil
+	return filepath.Join(d, "blossom", "router.yaml"), nil
 }
 
 func Load(path string) (Config, error) {
@@ -63,7 +63,7 @@ func Load(path string) (Config, error) {
 
 func applyEnv(cfg Config) Config {
 	for name, p := range cfg.Providers {
-		prefix := "DOUDOU_" + strings.ToUpper(strings.ReplaceAll(name, "-", "_")) + "_"
+		prefix := "BLOSSOM_" + strings.ToUpper(strings.ReplaceAll(name, "-", "_")) + "_"
 		if v := os.Getenv(prefix + "BASE_URL"); v != "" {
 			p.BaseURL = v
 		}

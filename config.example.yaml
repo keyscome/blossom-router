@@ -7,16 +7,16 @@ providers:
   cheap:
     base_url: https://your-provider.example/v1
     model: your-cheap-model
-    api_key_env: DOUDOU_CHEAP_API_KEY
+    api_key_env: BLOSSOM_CHEAP_API_KEY
   normal:
     base_url: https://your-provider.example/v1
     model: your-normal-model
-    api_key_env: DOUDOU_NORMAL_API_KEY
+    api_key_env: BLOSSOM_NORMAL_API_KEY
   strong:
     base_url: https://your-provider.example/v1
     model: your-strong-model
-    api_key_env: DOUDOU_STRONG_API_KEY
+    api_key_env: BLOSSOM_STRONG_API_KEY
   code:
     base_url: https://your-code-provider.example/v1
     model: your-code-model
-    api_key_env: DOUDOU_CODE_API_KEY
+    api_key_env: BLOSSOM_CODE_API_KEY

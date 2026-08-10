@@ -8,12 +8,12 @@ import (
 	"io"
 	"strings"
 
-	"github.com/alanthssss/doudou-cli/internal/config"
-	"github.com/alanthssss/doudou-cli/internal/provider"
-	"github.com/alanthssss/doudou-cli/internal/router"
+	"github.com/keyscome/blossom-router/internal/config"
+	"github.com/keyscome/blossom-router/internal/provider"
+	"github.com/keyscome/blossom-router/internal/router"
 )
 
-const usage = `Usage: dd <command> [flags] [prompt]
+const usage = `Usage: bloom <command> [flags] [prompt]
 
 Commands:
   local   Use the local Ollama-compatible provider
@@ -23,7 +23,7 @@ Commands:
   auto    Select local, cheap, normal, or strong automatically
 
 Flags:
-  --config PATH   Config file (default ~/.config/doudou/config.yaml)
+  --config PATH   Config file (default ~/.config/blossom/router.yaml)
   --dry-run       Show routing only (auto command)
 
 The prompt may be passed as arguments or via stdin.`

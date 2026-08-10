@@ -1,10 +1,10 @@
 .PHONY: build test install
 
 build:
-	go build -o bin/dd ./cmd/dd
+	go build -o bin/bloom ./cmd/bloom
 
 test:
 	go test ./...
 
 install:
-	go install ./cmd/dd
+	go install ./cmd/bloom

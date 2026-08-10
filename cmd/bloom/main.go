@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/alanthssss/doudou-cli/internal/app"
+	"github.com/keyscome/blossom-router/internal/app"
 )
 
 func main() {
